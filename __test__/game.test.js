@@ -67,6 +67,7 @@ const Game = require('../src/game').default
         }
       }
     })
+  })
 
     it('Wins if any column is filled', async () => {
       for (let r = 0; r < game.board.length; r++) {
@@ -94,5 +95,4 @@ const Game = require('../src/game').default
       }
       expect(game.hasWinner()).toBe(true)
     })
-  })
-})
+  
