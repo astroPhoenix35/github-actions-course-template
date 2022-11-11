@@ -26,7 +26,7 @@ jobs:
       strategy:
       matrix:
         node-version: [14.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        os: [ubuntu-latest, windows-2016]
 
     steps:
     - uses: actions/checkout@v3
@@ -41,3 +41,4 @@ jobs:
         npm test
       env:
         CI: true
+        
