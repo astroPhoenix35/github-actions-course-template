@@ -1,13 +1,23 @@
 const Game = require('../src/game').default
+const fs = require('fs')
 
-  describe('Game', () => {
+describe('App', () => {
+  it('Contains the compiled JavaScript', async (done) => {
+    fs.readFile('./public/main.js', 'utf8', (err, data) => {
+      expect(err).toBe(null)
+      expect(data).toMatchSnapshot()
+      done()
+    })
+  })
+})
+
+describe('Game', () => {
   let game, p1, p2
   beforeEach(() => {
     p1 = 'Salem'
     p2 = 'Nate'
     game = new Game(p1, p2)
   })
-})
 
   describe('Game', () => {
     it('Initializes with two players', async () => {
@@ -67,7 +77,6 @@ const Game = require('../src/game').default
         }
       }
     })
-  })
 
     it('Wins if any column is filled', async () => {
       for (let r = 0; r < game.board.length; r++) {
@@ -95,4 +104,5 @@ const Game = require('../src/game').default
       }
       expect(game.hasWinner()).toBe(true)
     })
-  
+  })
+})
