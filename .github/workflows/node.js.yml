@@ -28,17 +28,16 @@ jobs:
         node-version: [14.x]
         os: [ubuntu-latest, windows-2016]
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: npm install, and test
-      run: |
-        npm install
-        npm test
-      env:
-        CI: true
-        
+      steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - name: npm install, and test
+        run: |
+          npm install
+          npm test
+        env:
+          CI: true
