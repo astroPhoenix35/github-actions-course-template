@@ -36,5 +36,5 @@ jobs:
           java -version
 
     - name: Copy Tomcat users into configuration directory
-      run: cp -v tomcatData.xml .tomcat/conf/tomcat-users.xml
+      run: cp -v tomcatData.xml ./github
       
